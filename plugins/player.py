@@ -480,11 +480,6 @@ f'vcdemote@{Config.BOT_USERNAME}', f'refresh@{Config.BOT_USERNAME}', f'rtitle@{C
 
 allcmd = ["play", "player", f"play@{Config.BOT_USERNAME}", f"player@{Config.BOT_USERNAME}"] + admincmds
 
-@Client.on_message(filters.command(admincmds) & ~admin_filter & chat_filter)
-async def notforu(_, m: Message):
-    k = await _.send_cached_media(chat_id=m.chat.id, file_id="CAADBQADEgQAAtMJyFVJOe6-VqYVzAI", caption="You Are Not Authorized", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('⚡️Join Here', url='https://t.me/subin_works')]]))
-    await delete_messages([m, k])
-
 @Client.on_message(filters.command(allcmd) & ~chat_filter & filters.group)
 async def not_chat(_, m: Message):
     if m.from_user is not None and m.from_user.id in Config.SUDO:
