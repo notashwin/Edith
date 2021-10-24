@@ -98,7 +98,7 @@ async def show_help(client, message):
         disable_web_page_preview=True
         )
 
-@Client.on_message(filters.command(['restart', 'update', f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(['update', f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def update_handler(client, message):
     if Config.HEROKU_APP:
         k = await message.reply("Heroku APP found, Restarting app to update.")
