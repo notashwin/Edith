@@ -57,7 +57,7 @@ HOME_TEXT = "<b>Hey  [{}](tg://user?id={}) 🙋‍♂️\n\nIam A Bot Built To P
 admin_filter=filters.create(is_admin) 
 
 
-@Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(["h", f"h@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
     reply_markup=InlineKeyboardMarkup(
         [
@@ -97,7 +97,6 @@ async def show_help(client, message):
         reply_markup=reply_markup,
         disable_web_page_preview=True
         )
-
 @Client.on_message(filters.command(['update', f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def update_handler(client, message):
     if Config.HEROKU_APP:
