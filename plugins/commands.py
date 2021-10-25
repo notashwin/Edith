@@ -123,17 +123,6 @@ async def update_handler(client, message):
         pass
     await update()
 
-@Client.on_message(filters.command(['logs', f"logs@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
-async def get_logs(client, message):
-    m=await message.reply("Checking logs..")
-    if os.path.exists("botlog.txt"):
-        await message.reply_document('botlog.txt', caption="Bot Logs")
-        await m.delete()
-        await delete_messages([message])
-    else:
-        k = await m.edit("No log files found.")
-        await delete_messages([message, k])
-
 @Client.on_message(filters.command(['env', f"env@{Config.BOT_USERNAME}"]) & sudo_filter & chat_filter)
 async def set_heroku_var(client, message):
     with suppress(MessageIdInvalid, MessageNotModified):
