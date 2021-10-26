@@ -231,7 +231,7 @@ For private channels , make sure both the bot and USER account is a member of ch
     SETTINGS_HELP="""
 **You can easily customize you player as per you needs. The following configurations are available:**
 
-🔹Command: **/settings**
+🔹Command: **/s**
 
 🔹AVAILABLE CONFIGURATIONS:
 
@@ -344,7 +344,7 @@ __You can promote a admin with their username or user id or by replying to that 
 Command: **/vcdemote**
 __Remove an admin from admin list__
 
-Command: **/refresh**
+Command: **/reload**
 __Refresh the admin list of chat__
 """
 
