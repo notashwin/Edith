@@ -72,8 +72,6 @@ async def show_help(client, message):
                 InlineKeyboardButton("Admins", callback_data="help_admin"),
             ],
             [
-                InlineKeyboardButton("Misc", callback_data='help_misc'),
-                InlineKeyboardButton("Config Vars", callback_data='help_env'),
                 InlineKeyboardButton("Close", callback_data="close"),
             ],
         ]
