@@ -133,8 +133,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             InlineKeyboardButton("Admins", callback_data="help_admin"),
                         ],
                         [
-                            InlineKeyboardButton(f"Misc", callback_data='help_misc'),
-                            InlineKeyboardButton("Config Vars", callback_data='help_env'),
                             InlineKeyboardButton("Close", callback_data="close"),
                         ],
                     ]
