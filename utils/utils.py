@@ -1489,8 +1489,9 @@ async def get_buttons():
                 [
                     InlineKeyboardButton(f"{get_player_string()}", callback_data='info_player'),
                 ],
+                [
                     InlineKeyboardButton('🗑 Close', callback_data='close'),
-                ]
+                ],
             ]
             )
     return reply_markup
