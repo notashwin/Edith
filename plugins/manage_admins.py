@@ -61,11 +61,11 @@ async def add_admin(client, message):
         await delete_messages([message, k])
         return
     if user_id in Config.ADMINS:
-        k = await message.reply("This user is already an admin.") 
+        k = await message.reply("This user is already a VC Mod.") 
         await delete_messages([message, k])
         return
     Config.ADMINS.append(user_id)
-    k=await message.reply(f"Succesfully promoted {user.mention} as VC admin")
+    k=await message.reply(f"Successfully Promoted {user.mention} as VC Mod.")
     await sync_to_db()
     await delete_messages([message, k])
 
@@ -104,11 +104,11 @@ async def remove_admin(client, message):
         await delete_messages([message, k])
         return
     if not user_id in Config.ADMINS:
-        k = await message.reply("This user is not an admin yet.")
+        k = await message.reply("This user is not a VC Mod yet.")
         await delete_messages([message, k])
         return
     Config.ADMINS.remove(user_id)
-    k = await message.reply(f"Succesfully Demoted {user.mention}")
+    k = await message.reply(f"Demoted {user.mention} as VC Mod.")
     await sync_to_db()
     await delete_messages([message, k])
 
