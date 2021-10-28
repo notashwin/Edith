@@ -1442,7 +1442,7 @@ async def get_playlist_str():
     if Config.STREAM_LINK:
         pl = f"🔈 Streaming [Live Stream]({Config.STREAM_LINK})"
     elif not Config.playlist:
-        pl = f"🔈 Playlist is empty. 🔈 Streaming Radio."
+        pl = f"🔈 Playlist is empty. Streaming Radio."
     else:
         if len(Config.playlist)>=25:
             tplaylist=Config.playlist[:25]
