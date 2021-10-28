@@ -250,7 +250,7 @@ async def show_player(client, m: Message):
     data=Config.DATA.get('FILE_DATA')
     if not data.get('dur', 0) or \
         data.get('dur') == 0:
-        title="<b>🔈 Streaming Radio.</b>"
+        title="<bStreaming Radio.</b>"
     else:
         if Config.playlist:
             title=f"<b>{Config.playlist[0][1]}</b>"
