@@ -113,7 +113,7 @@ async def remove_admin(client, message):
     await delete_messages([message, k])
 
 
-@Client.on_message(filters.command(['reload', f"reload@{Config.BOT_USERNAME}"]) & filters.user(Config.SUDO))
+@Client.on_message(filters.command(['r', f"r@{Config.BOT_USERNAME}"]) & filters.user(Config.SUDO))
 async def refresh_admins(client, message):
     Config.ADMIN_CACHE=False
     await get_admins(Config.CHAT)
