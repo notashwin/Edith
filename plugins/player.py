@@ -480,6 +480,7 @@ f'vcdemote@{Config.BOT_USERNAME}', f'refresh@{Config.BOT_USERNAME}', f'rtitle@{C
 
 allcmd = ["play", "player", f"play@{Config.BOT_USERNAME}", f"player@{Config.BOT_USERNAME}"] + admincmds
 
+"""
 @Client.on_message(filters.command(allcmd) & ~chat_filter & filters.group)
 async def not_chat(_, m: Message):
     if m.from_user is not None and m.from_user.id in Config.SUDO:
@@ -502,3 +503,4 @@ async def not_chat(_, m: Message):
             ]
         await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/VCPlayerBot) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
 
+"""
