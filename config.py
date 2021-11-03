@@ -68,7 +68,7 @@ class Config:
     TIME_ZONE = os.environ.get("TIME_ZONE", "Asia/Kolkata")    
     IS_VIDEO=is_enabled(os.environ.get("IS_VIDEO", 'True'))
     IS_LOOP=is_enabled(os.environ.get("IS_LOOP", 'True'))
-    DELAY=int(os.environ.get("DELAY", '10'))
+    DELAY=int(os.environ.get("DELAY", '60'))
     PORTRAIT=is_enabled(os.environ.get("PORTRAIT", 'False'))
     IS_VIDEO_RECORD=is_enabled(os.environ.get("IS_VIDEO_RECORD", 'True'))
     DEBUG=is_enabled(os.environ.get("DEBUG", 'False'))
