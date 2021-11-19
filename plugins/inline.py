@@ -54,6 +54,8 @@ async def search(client, query):
         return
     string = query.query.lower().strip().rstrip()
     if string == "":
+        pass
+        """
         await client.answer_inline_query(
             query.id,
             results=answers,
@@ -61,6 +63,7 @@ async def search(client, query):
             switch_pm_parameter="help",
             cache_time=0
         )
+        """
     else:
         videosSearch = VideosSearch(string.lower(), limit=50)
         for v in videosSearch.result()["result"]:
