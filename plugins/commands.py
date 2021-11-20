@@ -57,7 +57,7 @@ HOME_TEXT = "<b>Hey  [{}](tg://user?id={}) 🙋‍♂️\n\nIam A Bot Built To P
 admin_filter=filters.create(is_admin) 
 
 
-@Client.on_message(filters.command(["h", f"h@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(["mhelp", f"mhelp@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
     reply_markup=InlineKeyboardMarkup(
         [
