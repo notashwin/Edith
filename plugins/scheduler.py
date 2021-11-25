@@ -159,7 +159,7 @@ async def schedule_vc(bot, message):
                     title = results[0]["title"][:40]
                 except Exception as e:
                     await msg.edit(
-                        "Song not found.\nTry inline mode.."
+                        "Try sending link by @vid song name"
                     )
                     LOGGER.error(str(e), exc_info=True)
                     await delete_messages([message, msg])
