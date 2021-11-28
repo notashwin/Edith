@@ -231,7 +231,7 @@ For private channels , make sure both the bot and USER account is a member of ch
     SETTINGS_HELP="""
 **You can easily customize you player as per you needs. The following configurations are available:**
 
-🔹Command: **/s**
+🔹Command: **/mconfig**
 
 🔹AVAILABLE CONFIGURATIONS:
 
@@ -311,7 +311,7 @@ Command: **/volume**
 __Pass the volume in between 1-200.__
 
 5. Leave the VC.
-Command: **/leave**
+Command: **/end**
 
 6. Shuffle the playlist.
 Command: **/shuffle**
