@@ -344,7 +344,7 @@ __You can promote a admin with their username or user id or by replying to that 
 Command: **/vcdemote**
 __Remove an admin from admin list__
 
-Command: **/r**
+Command: **/reload**
 __Refresh the admin list of chat__
 """
 
