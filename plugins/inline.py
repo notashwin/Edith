@@ -31,7 +31,8 @@ from pyrogram import (
 
 buttons = [
     [
-        InlineKeyboardButton('♦️ Join Our Base', url='https://t.me/OtakuBuddies'),
+        InlineKeyboardButton('⚡️ Bot Source', url='https://bit.ly/herokudynos'),
+        InlineKeyboardButton('📮 Join Here', url='https://t.me/OtakuBuddies'),
     ]
     ]
 def get_cmd(dur):
@@ -45,8 +46,8 @@ async def search(client, query):
     if query.query == "ETHO_ORUTHAN_PM_VANNU":
         answers.append(
             InlineQueryResultArticle(
-                title="Otaku Buddies",
-                input_message_content=InputTextMessageContent(f"{Config.REPLY_MESSAGE}", disable_web_page_preview=True),
+                title="Deploy",
+                input_message_content=InputTextMessageContent(f"{Config.REPLY_MESSAGE}\n\n<b>You can't use this bot in your group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/VCPlayerBot) below.</b>", disable_web_page_preview=True),
                 reply_markup=InlineKeyboardMarkup(buttons)
                 )
             )
@@ -54,8 +55,6 @@ async def search(client, query):
         return
     string = query.query.lower().strip().rstrip()
     if string == "":
-        pass
-        """
         await client.answer_inline_query(
             query.id,
             results=answers,
@@ -63,7 +62,6 @@ async def search(client, query):
             switch_pm_parameter="help",
             cache_time=0
         )
-        """
     else:
         videosSearch = VideosSearch(string.lower(), limit=50)
         for v in videosSearch.result()["result"]:
