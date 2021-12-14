@@ -1,4 +1,4 @@
-git+https://github.com/subinps/pyrogram.git@session
+git+https://github.com/pyrogram/pyrogram@master
 py-tgcalls
 parse-torrent-name
 tgcrypto
