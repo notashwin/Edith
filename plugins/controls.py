@@ -52,18 +52,19 @@ async def player(client, message):
         await delete_messages([message])
         return
     pl = await get_playlist_str()
+    vid = 'https://telegra.ph/file/e63f3c7f3a63e260a51a2.mp4'
     if message.chat.type == "private":
-        await message.reply_text(
-            pl,
-            disable_web_page_preview=True,
+        await message.reply_video(
+            vid,
+            caption=pl,
             reply_markup=await get_buttons(),
         )
     else:
         if Config.msg.get('player') is not None:
             await Config.msg['player'].delete()
-        Config.msg['player'] = await message.reply_text(
-            pl,
-            disable_web_page_preview=True,
+        Config.msg['player'] = await message.reply_video(
+            vid,
+            caption=pl,
             reply_markup=await get_buttons(),
         )
     await delete_messages([message])
