@@ -1141,9 +1141,10 @@ async def renew_recording():
 async def send_playlist():
     if Config.LOG_GROUP:
         pl = await get_playlist_str()
+        vid = "https://telegra.ph/file/e63f3c7f3a63e260a51a2.mp4"
         if Config.msg.get('player') is not None:
             await Config.msg['player'].delete()
-        Config.msg['player'] = await send_text(pl)
+        Config.msg['player'] = await send_video(vid, pl)
 
 
 async def send_text(text):
@@ -1156,6 +1157,15 @@ async def send_text(text):
     )
     return message
 
+async def send_video(video, caption):
+    message = await bot.send_video(
+        int(Config.LOG_GROUP),
+        video,
+        caption=caption,
+        reply_markup=await get_buttons(),
+        disable_notification=True
+    )
+    return message
 
 async def shuffle_playlist():
     v = []
