@@ -268,12 +268,13 @@ async def add_to_playlist(_, message: Message):
             await send_playlist()  
         await msg.delete()
         pl=await get_playlist_str()
+        vid = "https://telegra.ph/file/e63f3c7f3a63e260a51a2.mp4"
         if message.chat.type == "private":
-            await message.reply(pl, reply_markup=await get_buttons() ,disable_web_page_preview=True)       
+            await message.reply_video(vid, caption=pl, reply_markup=await get_buttons())       
         elif not Config.LOG_GROUP and message.chat.type == "supergroup":
             if Config.msg.get('playlist') is not None:
                 await Config.msg['playlist'].delete()
-            Config.msg['playlist']=await message.reply(pl, disable_web_page_preview=True, reply_markup=await get_buttons())    
+            Config.msg['playlist']=await message.reply_video(vid, caption=pl, reply_markup=await get_buttons())    
             await delete_messages([message])  
         for track in Config.playlist[:2]:
             await download(track)
