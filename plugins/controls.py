@@ -61,9 +61,9 @@ async def player(client, message):
     else:
         if Config.msg.get('player') is not None:
             await Config.msg['player'].delete()
-        Config.msg['player'] = await message.reply_video(
-            vid,
-            caption=pl,
+        Config.msg['player'] = await message.reply_text(
+            pl,
+            disable_web_page_preview=True,
             reply_markup=await get_buttons(),
         )
     await delete_messages([message])
