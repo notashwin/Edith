@@ -1468,8 +1468,6 @@ async def get_playlist_str():
                 for i, x in enumerate(Config.playlist)])
     return pl
 
-
-"""
 async def get_buttons():
     data=Config.DATA.get("FILE_DATA")
     if not Config.CALL_STATUS:
@@ -1498,35 +1496,44 @@ async def get_buttons():
             ]
             )
     return reply_markup
-"""
-def get_buttons(videoid, duration, user_id, query, query_type):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                text="❮",
-                callback_data=f"slider B|{query_type}|{query}|{user_id}",
-            ),
-            InlineKeyboardButton(
-                text="Play Now",
-                callback_data=f"Yukki {videoid}|{duration}|{user_id}",
-            ),
-            InlineKeyboardButton(
-                text="❯",
-                callback_data=f"slider F|{query_type}|{query}|{user_id}",
-            ),
-        ],
-        [
-            InlineKeyboardButton(
-                text="🔎 More Results",
-                callback_data=f"Search {query}|{user_id}",
-            ),
-            InlineKeyboardButton(
-                text="🗑 Close Search",
-                callback_data=f"forceclose {query}|{user_id}",
-            ),
-        ],
-    ]
-    return buttons
+
+async def get_base():
+    data=Config.DATA.get("FILE_DATA")
+    if not Config.CALL_STATUS:
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(f"🎸 Start the Player", callback_data="restart"),
+                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                ],
+                [
+                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddiest'),
+                ],
+            ]
+            )
+    elif data.get('dur', 0) == 0:
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                ],
+                [
+                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddiest'),
+                ],
+            ]
+            )
+    else:
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                ],
+                [
+                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddiest'),
+                ],
+            ]
+            )
+    return reply_markup
 
 async def settings_panel():
     reply_markup=InlineKeyboardMarkup(
