@@ -275,7 +275,7 @@ async def add_to_playlist(_, message: Message):
         elif not Config.LOG_GROUP and message.chat.type == "supergroup":
             if Config.msg.get('playlist') is not None:
                 await Config.msg['playlist'].delete()
-            Config.msg['playlist']=await message.reply_video(vid, caption=pl, reply_markup=await get_base())    
+            Config.msg['playlist']=await message.reply_video(vid, caption=pl, reply_markup=await get_buttons())    
             await delete_messages([message])  
         for track in Config.playlist[:2]:
             await download(track)
