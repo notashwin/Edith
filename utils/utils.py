@@ -1469,7 +1469,7 @@ async def get_playlist_str():
     return pl
 
 
-
+"""
 async def get_buttons():
     data=Config.DATA.get("FILE_DATA")
     if not Config.CALL_STATUS:
@@ -1498,7 +1498,35 @@ async def get_buttons():
             ]
             )
     return reply_markup
-
+"""
+def get_buttons(videoid, duration, user_id, query, query_type):
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text="❮",
+                callback_data=f"slider B|{query_type}|{query}|{user_id}",
+            ),
+            InlineKeyboardButton(
+                text="Play Now",
+                callback_data=f"Yukki {videoid}|{duration}|{user_id}",
+            ),
+            InlineKeyboardButton(
+                text="❯",
+                callback_data=f"slider F|{query_type}|{query}|{user_id}",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="🔎 More Results",
+                callback_data=f"Search {query}|{user_id}",
+            ),
+            InlineKeyboardButton(
+                text="🗑 Close Search",
+                callback_data=f"forceclose {query}|{user_id}",
+            ),
+        ],
+    ]
+    return buttons
 
 async def settings_panel():
     reply_markup=InlineKeyboardMarkup(
