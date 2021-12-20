@@ -1775,27 +1775,10 @@ def get_player_string():
     if dur == 0:
         dur=played
     played = round(now-start)
-    percentage = played * 100 / dur
-    l = []
-    r = []
-    ls = 0
-    lr = 0
-    for i in range(math.floor(percentage / 5)):
-        ls+=1
-        if ls == 50:
-            ls = 0        
-            l.append("━")
-    for i in range(20 - math.floor(percentage / 5))
-        lr+=1
-        if lr == 50:
-            lr = 0        
-            r.append("━")
-    progressbar = "{0}◉{1}".format(\
-            ''.join(l),
-            ''.join(r)
-            )
+    progressbar = "------"
     final=f"{convert(played)}   {progressbar}    {convert(dur)}"
     return final
+
 
 def get_volume_string():
     current = int(Config.VOLUME)
