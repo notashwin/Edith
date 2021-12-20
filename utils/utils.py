@@ -1775,7 +1775,7 @@ def get_player_string():
     if dur == 0:
         dur=played
     played = round(now-start)
-    progressbar = "------"
+    progressbar = "-----------"
     final=f"{convert(played)}   {progressbar}    {convert(dur)}"
     return final
 
