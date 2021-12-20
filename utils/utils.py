@@ -1487,7 +1487,7 @@ async def get_buttons():
                 ],
             ]
             )
-      else:
+    else:
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -1496,7 +1496,7 @@ async def get_buttons():
                 [                 
                     InlineKeyboardButton("⏯", callback_data=f"{get_pause(Config.PAUSE)}"),
                     InlineKeyboardButton("⏩", callback_data="skip"),
-                    InlineKeyboardButton("⏮", callback_data='rewind'),,
+                    InlineKeyboardButton("⏮", callback_data='rewind'),
                     InlineKeyboardButton("⏭", callback_data='seek'),
                
                 ],
