@@ -1777,8 +1777,8 @@ def get_player_string():
     played = round(now-start)
     percentage = played * 50 / dur
     progressbar = "▷ {0}◉{1}".format(\
-            ''.join(["━" for i in range(math.floor(percentage / 5))]),
-            ''.join(["─" for i in range(15 - math.floor(percentage / 5))])
+            ''.join(["━" for i in range(math.floor(percentage / 4))]),
+            ''.join(["─" for i in range(15 - math.floor(percentage / 4))])
             )
     final=f"{convert(played)}   {progressbar}    {convert(dur)}"
     return final
