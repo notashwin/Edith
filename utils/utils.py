@@ -1475,7 +1475,7 @@ async def get_buttons():
             [
                 [
                     InlineKeyboardButton(f"🎸 Start the Player", callback_data="restart"),
-                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                    InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
             ]
             )
@@ -1483,7 +1483,7 @@ async def get_buttons():
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                    InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
             ]
             )
@@ -1497,11 +1497,10 @@ async def get_buttons():
                     InlineKeyboardButton("⏯", callback_data=f"{get_pause(Config.PAUSE)}"),
                     InlineKeyboardButton("⏩", callback_data="skip"),
                     InlineKeyboardButton("⏮", callback_data='rewind'),
-                    InlineKeyboardButton("⏭", callback_data='seek'),
-               
+                    InlineKeyboardButton("⏭", callback_data='seek'), 
                 ],
                 [
-                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddies'),
+                    InlineKeyboardButton('🗳️ Join Here', url='https://t.me/OtakuBuddies'),
                     InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ]
             ]
@@ -1537,7 +1536,7 @@ async def get_base():
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                    InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
                 [
                     InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddiest'),
