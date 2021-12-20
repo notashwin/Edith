@@ -1494,7 +1494,7 @@ async def get_buttons():
                     InlineKeyboardButton(f"{get_player_string()}", callback_data='info_player'),
                 ],
                 [                 
-                    InlineKeyboardButton("⏯", callback_data=f"{get_pause(Config.PAUSE)}"),
+                    InlineKeyboardButton("⏺", callback_data=f"{get_pause(Config.PAUSE)}"),
                     InlineKeyboardButton("⏩", callback_data="skip"),
                     InlineKeyboardButton("⏮", callback_data='rewind'),
                     InlineKeyboardButton("⏭", callback_data='seek'), 
