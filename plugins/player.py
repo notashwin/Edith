@@ -198,7 +198,7 @@ async def add_to_playlist(_, message: Message):
                     title = results[0]["title"][:40]
                 except Exception as e:
                     await msg.edit(
-                        "Song not found.\nTry inline mode.."
+                        "Song not found. Get links inline using @vid."
                     )
                     LOGGER.error(str(e), exc_info=True)
                     await delete_messages([message, msg])
@@ -499,10 +499,10 @@ async def not_chat(_, m: Message):
     else:
         buttons = [
             [
-                InlineKeyboardButton('⚡️ Bot Source', url='https://bit.ly/herokudynos'),
+                InlineKeyboardButton('⚡️ Bot Source', url='https://bit.ly/BotSource'),
                 InlineKeyboardButton('📮 Join Here', url='https://t.me/OtakuBuddies'),
             ]
             ]
-        await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/VCPlayerBot) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+        await m.reply("<b>You can't use this bot in this group.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
 
 """
