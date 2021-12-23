@@ -381,10 +381,10 @@ async def channel_play_list(client, m: Message):
                     await k.edit(f"Succesfully Added {msg} files from {chat.title} to playlist")
                     await delete_messages([m, k])
             else:
-                await k.edit("The given channel is invalid. For private channels it should start with -100 and for public channels it should start with @\nExamples - `/cplay @VCPlayerFiles or /cplay -100125369865\n\nFor private channel, both bot and the USER account should be members of channel.")
+                await k.edit("The given channel is invalid. For private channels it should start with -100 and for public channels it should start with @\nExamples - `/cplay @thy_time or /cplay -1001199835435\n\nFor private channel, both bot and the USER account should be members of channel.")
                 await delete_messages([m, k])
         else:
-            await k.edit("You didn't gave me any channel. Give me a channel id or username from which i should play files . \nFor private channels it should start with -100 and for public channels it should start with @\nExamples - `/cplay @VCPlayerFiles or /cplay -100125369865\n\nFor private channel, both bot and the USER account should be members of channel.")
+            await k.edit("You didn't gave me any channel. Give me a channel id or username from which i should play files . \nFor private channels it should start with -100 and for public channels it should start with @\nExamples - `/cplay @thy_time or /cplay -1001199835435\n\nFor private channel, both bot and the USER account should be members of channel.")
             await delete_messages([m, k])
 
 
@@ -468,7 +468,7 @@ async def stream(client, m: Message):
             return
         if Config.msg.get('player'):
             await Config.msg['player'].delete()
-        Config.msg['player']=await msg.edit(f"[Streaming]({stream_link}) Started. ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", disable_web_page_preview=True, reply_markup=await get_buttons())
+        Config.msg['player']=await msg.edit(f"[Streaming]({stream_link}) Started.", disable_web_page_preview=True, reply_markup=await get_buttons())
         await delete_messages([m])
         
 
@@ -488,7 +488,7 @@ async def not_chat(_, m: Message):
     if m.from_user is not None and m.from_user.id in Config.SUDO:
         buttons = [
             [
-                InlineKeyboardButton('⚡️Change CHAT', callback_data='set_new_chat'),
+                InlineKeyboardButton('⚡️ Change CHAT', callback_data='set_new_chat'),
             ],
             [
                 InlineKeyboardButton('No', callback_data='closesudo'),
@@ -500,7 +500,7 @@ async def not_chat(_, m: Message):
         buttons = [
             [
                 InlineKeyboardButton('⚡️ Bot Source', url='https://bit.ly/BotSource'),
-                InlineKeyboardButton('📮 Join Here', url='https://t.me/OtakuBuddies'),
+                InlineKeyboardButton('🗳️ Join Here', url='https://t.me/OtakuBuddies'),
             ]
             ]
         await m.reply("<b>You can't use this bot in this group.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
