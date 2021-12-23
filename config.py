@@ -215,7 +215,7 @@ Command: **/stream**
 __Pass a live stream URL or any direct URL to play it as stream.__
 
 5. Import an old playlist.
-Command: **/import**
+Command: **/push**
 __Reply to a previously exported playlist file. __
 
 6. Channel Play
@@ -349,7 +349,7 @@ __Refresh the admin list of chat__
 """
 
     MISC_HELP="""
-Command: **/export**
+Command: **/pull**
 __VCPlayer allows you to export your current playlist for future use.__
 __A json file will be sent to you and the same can be used along /import command.__
 
