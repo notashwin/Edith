@@ -37,7 +37,7 @@ admin_filter=filters.create(is_admin)
 
 @Client.on_message(filters.command(["record", f"record@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def record_vc(bot, message):
-    await message.reply("Configure you VCPlayer Recording settings from hereㅤㅤ ㅤ", reply_markup=(await recorder_settings()))
+    await message.reply("Configure you VCPlayer Recording settings from here", reply_markup=(await recorder_settings()))
     await delete_messages([message])
 
 @Client.on_message(filters.command(["rtitle", f"rtitle@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
