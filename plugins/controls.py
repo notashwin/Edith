@@ -45,7 +45,7 @@ admin_filter=filters.create(is_admin)
 async def player(client, message):
     if not Config.CALL_STATUS:
         await message.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -73,7 +73,7 @@ async def skip_track(_, m: Message):
     msg=await m.reply('trying to skip from queue..')
     if not Config.CALL_STATUS:
         await msg.edit(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -116,7 +116,7 @@ async def skip_track(_, m: Message):
 async def pause_playing(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -135,7 +135,7 @@ async def pause_playing(_, m: Message):
 async def resume_playing(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -155,21 +155,21 @@ async def resume_playing(_, m: Message):
 async def set_vol(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
         await delete_messages([m])
         return
     if len(m.command) < 2:
-        await m.reply_text('Change Volume of Your VCPlayer. ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ', reply_markup=await volume_buttons())
+        await m.reply_text('Change Volume of Your VCPlayer.', reply_markup=await volume_buttons())
         await delete_messages([m])
         return
     if not 1 < int(m.command[1]) < 200:
-        await m.reply_text(f"Only 1-200 range is accepeted. ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await volume_buttons())
+        await m.reply_text(f"Only 1-200 range is accepeted.", reply_markup=await volume_buttons())
     else:
         await volume(int(m.command[1]))
-        await m.reply_text(f"Succesfully set volume to {m.command[1]} ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await volume_buttons())
+        await m.reply_text(f"Succesfully set volume to {m.command[1]}", reply_markup=await volume_buttons())
     await delete_messages([m])
 
     
@@ -179,7 +179,7 @@ async def set_vol(_, m: Message):
 async def set_mute(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -201,7 +201,7 @@ async def set_mute(_, m: Message):
 async def set_unmute(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -226,7 +226,7 @@ async def replay_playout(client, m: Message):
     msg = await m.reply('Checking player')
     if not Config.CALL_STATUS:
         await msg.edit(
-            "Player is idle, start the player using below button. ㅤㅤㅤㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -279,7 +279,7 @@ async def show_player(client, m: Message):
 async def seek_playout(client, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
-            "Player is idle, start the player using below button. ㅤㅤㅤ ㅤㅤ",
+            "Player is idle, start the player using below button.",
             disable_web_page_preview=True,
             reply_markup=await get_buttons()
         )
@@ -307,17 +307,17 @@ async def seek_playout(client, m: Message):
             return
         if not data.get('dur', 0)\
             or data.get('dur') == 0:
-            title="<b>Playing Live Stream</b> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ"
+            title="<b>Playing Live Stream</b>"
         else:
             if Config.playlist:
-                title=f"<b>{Config.playlist[0][1]}</b>\nㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ"
+                title=f"<b>{Config.playlist[0][1]}</b>\n"
             elif Config.STREAM_LINK:
-                title=f"<b>Stream Using [Url]({data['file']})</b> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ"
+                title=f"<b>Stream Using [Url]({data['file']})</b>"
             else:
-                title=f"<b>Streaming Startup [stream]({Config.STREAM_URL})</b> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ"
+                title=f"<b>Streaming Startup [stream]({Config.STREAM_URL})</b>"
         if Config.msg.get('player'):
             await Config.msg['player'].delete()  
-        Config.msg['player'] = await k.edit(f"🎸{title}", reply_markup=await get_buttons(), disable_web_page_preview=True)
+        Config.msg['player'] = await k.edit(f"🏷 {title}", reply_markup=await get_buttons(), disable_web_page_preview=True)
         await delete_messages([m])
     else:
         await k.edit('No time specified')
@@ -326,5 +326,5 @@ async def seek_playout(client, m: Message):
 
 @Client.on_message(filters.command(["msettings", "mconfig", f"mconfig@{Config.BOT_USERNAME}", f"msettings@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def settings(client, m: Message):
-    await m.reply(f"Configure Your VCPlayer Settings Here. ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ", reply_markup=await settings_panel(), disable_web_page_preview=True)
+    await m.reply(f"Configure Your VCPlayer Settings.", reply_markup=await settings_panel(), disable_web_page_preview=True)
     await delete_messages([m])
