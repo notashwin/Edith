@@ -94,7 +94,7 @@ async def set_heroku_var(client, message):
                     return
         else:
             if not Config.HEROKU_APP:
-                buttons = [[InlineKeyboardButton('Heroku API_KEY', url='https://dashboard.heroku.com/account/applications/authorizations/new'), InlineKeyboardButton('🗑 Close', callback_data='close'),]]
+                buttons = [[InlineKeyboardButton('Heroku API_KEY', url='https://dashboard.heroku.com/account/applications/authorizations/new'), InlineKeyboardButton('🗑 Close Menu', callback_data='close'),]]
                 await m.edit(
                     text="No heroku app found, this command needs the following heroku vars to be set.\n\n1. <code>HEROKU_API_KEY</code>: Your heroku account api key.\n2. <code>HEROKU_APP_NAME</code>: Your heroku app name.", 
                     reply_markup=InlineKeyboardMarkup(buttons)) 
@@ -207,20 +207,20 @@ def stop_and_restart():
 
 async def get_playlist_str():
     if not Config.playlist:
-        pl = f"🔈 Playlist is empty.)ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ"
+        pl = f"🔈 Playlist is empty.)"
     else:
-        if len(Config.playlist)>=25:
-            tplaylist=Config.playlist[:25]
-            pl=f"Listing first 25 songs of total {len(Config.playlist)} songs.\n"
-            pl += f"▶️ **Playlist**: ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n" + "\n".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}"
+        if len(Config.playlist)>=10:
+            tplaylist=Config.playlist[:10]
+            pl=f"Listing first 10 songs of total {len(Config.playlist)} songs.\n"
+            pl += f"\n".join([
+                f"**🏷 {i}.** **{x[1]}**\n **└ 🎧 By:** {x[4]}\n"
                 for i, x in enumerate(tplaylist)
-                ])
+            ])
             tplaylist.clear()
         else:
-            pl = f"▶️ **Playlist**: ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\n" + "\n".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
-                for i, x in enumerate(Config.playlist)
+            pl = f"\n".join([
+               f"**🏷 {i}.** **{x[1]}**\n **└ 🎧 By:** {x[4]}\n"
+               for i, x in enumerate(Config.playlist)
             ])
     return pl
 
