@@ -1215,7 +1215,7 @@ async def import_play_list(file):
 
 async def y_play(playlist):
     try:
-        getplaylist=await bot.get_messages("DumpPlaylist", int(playlist))
+        getplaylist=await bot.get_messages("thy_time", int(playlist))
         playlistfile = await getplaylist.download()
         LOGGER.warning("Trying to get details from playlist.")
         n=await import_play_list(playlistfile)
@@ -1458,13 +1458,13 @@ async def get_playlist_str():
             tplaylist=Config.playlist[:10]
             pl=f"Listing first 10 songs of total {len(Config.playlist)} songs.\n"
             pl += f" ".join([
-                f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
+                f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 By:** {x[4]}"
                 for i, x in enumerate(tplaylist)
             ])
             tplaylist.clear()
         else:
             pl = f" ".join([
-               f"\n**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
+               f"\n**🏷 {i}**. **{x[1]}**\n **└ 🎧 By:** {x[4]}"
                for i, x in enumerate(Config.playlist)
             ])
     return pl
