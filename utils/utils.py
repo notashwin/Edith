@@ -1454,19 +1454,20 @@ async def get_playlist_str():
     elif not Config.playlist:
         pl = f"🔈 Playlist is empty. Streaming Radio."
     else:
-        if len(Config.playlist)>=25:
-            tplaylist=Config.playlist[:25]
-            pl=f"Listing first 25 songs of total {len(Config.playlist)} songs.\n"
+        if len(Config.playlist)>=10:
+            tplaylist=Config.playlist[:10]
+            pl=f"Listing first 10 songs of total {len(Config.playlist)} songs.\n"
             pl += f" ".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
+                f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
                 for i, x in enumerate(tplaylist)
             ])
                 
             tplaylist.clear()
         else:
             pl = f" ".join([
-                f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
-                for i, x in enumerate(Config.playlist)])
+                f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
+                for i, x in enumerate(Config.playlist)
+            ])
     return pl
 
 async def get_buttons():
