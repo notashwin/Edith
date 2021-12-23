@@ -111,7 +111,7 @@ async def schedule_vc(bot, message):
                 type="query"
                 ysearch=query
         if not message.from_user is None:
-            user=f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) - (Scheduled)"
+            user=f"{message.from_user.first_name} - (Scheduled)"
             user_id = message.from_user.id
         else:
             user="Anonymous - (Scheduled)"
@@ -159,7 +159,7 @@ async def schedule_vc(bot, message):
                     title = results[0]["title"][:40]
                 except Exception as e:
                     await msg.edit(
-                        "Try sending link inline by using @vid."
+                        "Try getting link inline by @vid."
                     )
                     LOGGER.error(str(e), exc_info=True)
                     await delete_messages([message, msg])
