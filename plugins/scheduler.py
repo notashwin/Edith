@@ -111,7 +111,7 @@ async def schedule_vc(bot, message):
                 type="query"
                 ysearch=query
         if not message.from_user is None:
-            user=f"{message.from_user.first_name} - (Scheduled)"
+            user=f"[{message.from_user.first_name}](tg://user?id={message.from_user.id}) - (Scheduled)"
             user_id = message.from_user.id
         else:
             user="Anonymous - (Scheduled)"
