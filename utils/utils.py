@@ -369,7 +369,7 @@ async def join_and_play(link, seek, pic, width, height):
                             audio_parameters=AudioParameters(
                                 Config.BITRATE,
                             ),
-                            additional_ffmpeg_parameters=f'-ss {start} -atend -t {end}',                        ),
+                            additional_ffmpeg_parameters=f'-ss {start} -atend -t {end}',),
                         stream_type=StreamType().pulse_stream,
                     )
                 else:
@@ -515,7 +515,7 @@ async def change_file(link, seek, pic, width, height):
                             audio_parameters=AudioParameters(
                                 Config.BITRATE,
                             ),
-                            additional_ffmpeg_parameters=f'-ss {start} -atend -t {end}',                        ),
+                            additional_ffmpeg_parameters=f'-ss {start} -atend -t {end}',),
                     )
                 else:
                     if not width \
