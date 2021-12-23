@@ -159,7 +159,7 @@ async def schedule_vc(bot, message):
                     title = results[0]["title"][:40]
                 except Exception as e:
                     await msg.edit(
-                        "Try sending link by @vid song name"
+                        "Try sending link inline by using @vid."
                     )
                     LOGGER.error(str(e), exc_info=True)
                     await delete_messages([message, msg])
@@ -314,7 +314,7 @@ async def delete_all_sch(bot, message):
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
-    await message.reply("Do you want to cancel all the scheduled streams?ㅤㅤㅤㅤ ㅤ", reply_markup=reply_markup)
+    await message.reply("Do you want to cancel all the scheduled streams?", reply_markup=reply_markup)
     await delete_messages([message])
 
 
