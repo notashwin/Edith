@@ -50,7 +50,7 @@ async def export_play_list(client, message: Message):
     file=f"{message.chat.id}_{message.message_id}.json"
     with open(file, 'w+') as outfile:
         json.dump(Config.playlist, outfile, indent=4)
-    await client.send_document(chat_id=message.chat.id, document=file, file_name="PlayList.json", caption=f"Playlist\n\nNumber Of Songs: <code>{len(Config.playlist)}</code>\n\nJoin [Otaku Buddies](https://t.me/Otaku_Buddies)")
+    await client.send_document(chat_id=message.chat.id, document=file, file_name="PlayList.json", caption=f"Playlist\n\nNumber Of Songs: <code>{len(Config.playlist)}</code>\n\n🗳️ Join [Otaku Buddies](https://t.me/OtakuBuddies)")
     try:
         os.remove(file)
     except:
