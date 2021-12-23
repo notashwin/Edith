@@ -1461,11 +1461,10 @@ async def get_playlist_str():
                 f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
                 for i, x in enumerate(tplaylist)
             ])
-                
             tplaylist.clear()
         else:
             pl = f" ".join([
-               f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
+               f"\n**🏷 {i}**. **{x[1]}**\n **└ 🎧 Requested by:** {x[4]}"
                for i, x in enumerate(Config.playlist)
             ])
     return pl
