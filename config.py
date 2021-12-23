@@ -218,7 +218,7 @@ __Pass a live stream URL or any direct URL to play it as stream.__
 
 Command: **/pull**
 __VCPlayer allows you to export your current playlist for future use.__
-__A json file will be sent to you and the same can be used along /import command.__
+__A json file will be sent to you and the same can be used along /push command.__
 
 Command: **/push**
 __Reply to a previously exported playlist file. __
