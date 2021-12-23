@@ -145,7 +145,7 @@ async def add_to_playlist(_, message: Message):
                 type="query"
                 ysearch=query
         if not message.from_user is None:
-            user=f"{message.from_user.first_name}"
+            user=f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
             user_id = message.from_user.id
         else:
             user="Anonymous"
