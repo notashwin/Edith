@@ -41,7 +41,7 @@ from pyrogram.errors import (
 admin_filter=filters.create(is_admin)   
 
 
-@Client.on_message(filters.command(["export", f"export@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["pull", f"export@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def export_play_list(client, message: Message):
     if not Config.playlist:
         k=await message.reply_text("Playlist is Empty")
@@ -57,12 +57,12 @@ async def export_play_list(client, message: Message):
         pass
     await delete_messages([message])
 
-@Client.on_message(filters.command(["import", f"import@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(["push", f"import@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def import_playlist(client, m: Message):
     with suppress(MessageIdInvalid, MessageNotModified):
         if m.reply_to_message is not None and m.reply_to_message.document:
             if m.reply_to_message.document.file_name != "PlayList.json":
-                k=await m.reply("Invalid PlayList file given. Export your current Playlist using /export.")
+                k=await m.reply("Invalid PlayList file given. Export your current Playlist using /pull.")
                 await delete_messages([m, k])
                 return
             myplaylist=await m.reply_to_message.download()
