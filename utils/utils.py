@@ -1458,13 +1458,13 @@ async def get_playlist_str():
             tplaylist=Config.playlist[:10]
             pl=f"Listing first 10 songs of total {len(Config.playlist)} songs.\n"
             pl += f" ".join([
-                f"**🏷 {i}**. **{x[1]}**\n **└ 🎧 By:** {x[4]}"
+                f"**🏷 Now:** **{x[1]}**\n **└ 🎧 By:** {x[4]}"
                 for i, x in enumerate(tplaylist)
             ])
             tplaylist.clear()
         else:
             pl = f" ".join([
-               f"\n**🏷 {i}**. **{x[1]}**\n **└ 🎧 By:** {x[4]}"
+               f"**{i}**. **{x[1]}**\n **└ 🎧 By:** {x[4]}"
                for i, x in enumerate(Config.playlist)
             ])
     return pl
