@@ -30,7 +30,7 @@ from utils import (
 async def add_admin(client, message):
     if message.reply_to_message:
         if message.reply_to_message.from_user.id is None:
-            k = await message.reply("You are an anonymous admin, you can't do this.")
+            k = await message.reply("🙅 You are an anonymous admin, you can't do this.")
             await delete_messages([message, k])
             return
         user_id=message.reply_to_message.from_user.id
@@ -61,11 +61,11 @@ async def add_admin(client, message):
         await delete_messages([message, k])
         return
     if user_id in Config.ADMINS:
-        k = await message.reply("This user is already a VC Mod.") 
+        k = await message.reply("🤷 This user is already a VC Mod.") 
         await delete_messages([message, k])
         return
     Config.ADMINS.append(user_id)
-    k=await message.reply(f"Successfully Promoted {user.mention} as VC Mod.")
+    k=await message.reply(f"✅ Successfully Promoted {user.mention} as VC Mod.")
     await sync_to_db()
     await delete_messages([message, k])
 
@@ -74,7 +74,7 @@ async def add_admin(client, message):
 async def remove_admin(client, message):
     if message.reply_to_message:
         if message.reply_to_message.from_user.id is None:
-            k = await message.reply("You are an anonymous admin, you can't do this.")
+            k = await message.reply("🙅 You are an anonymous admin, you can't do this.")
             await delete_messages([message, k])
             return
         user_id=message.reply_to_message.from_user.id
@@ -104,11 +104,11 @@ async def remove_admin(client, message):
         await delete_messages([message, k])
         return
     if not user_id in Config.ADMINS:
-        k = await message.reply("This user is not a VC Mod yet.")
+        k = await message.reply("🤷 This user is not a VC Mod yet.")
         await delete_messages([message, k])
         return
     Config.ADMINS.remove(user_id)
-    k = await message.reply(f"Demoted {user.mention} as VC Mod.")
+    k = await message.reply(f"👀 Demoted {user.mention} as VC Mod.")
     await sync_to_db()
     await delete_messages([message, k])
 
