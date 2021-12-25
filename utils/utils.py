@@ -1776,8 +1776,8 @@ def get_player_string():
     if dur == 0:
         dur=played
     played = round(now-start)
-    progressbar = "◈----------------◈"
-    final=f"{convert(played)}   {progressbar}   {convert(dur)}"
+    progressbar = "◈--------------◈"
+    final=f"{convert(played)}  {progressbar}  {convert(dur)}"
     return final
 
 
@@ -1795,7 +1795,7 @@ def get_volume_string():
         e="🔊"
     percentage = current * 100 / 200
     progressbar = "◈------------◈"
-    final=f"{e} {str(current)}   {progressbar}   {str(200)}"
+    final=f"{str(current)}   {progressbar}   {str(200)}"
     return final
 
 def set_config(value):
