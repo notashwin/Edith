@@ -239,6 +239,7 @@ async def replay_playout(client, m: Message):
 
 @Client.on_message(filters.command(["player", f"player@{Config.BOT_USERNAME}"]) & chat_filter)
 async def show_player(client, m: Message):
+    title = " "
     if not Config.CALL_STATUS:
         await m.reply_text(
             "Player is idle, start the player using below button.",
@@ -250,14 +251,14 @@ async def show_player(client, m: Message):
     data=Config.DATA.get('FILE_DATA')
     if not data.get('dur', 0) or \
         data.get('dur') == 0:
-        title="<bStreaming Radio.</b>"
+        title+="<b>Streaming Radio.</b>"
     else:
         if Config.playlist:
-            title=f"<b>{Config.playlist[0][1]}</b>"
+            title+=f"<b>{Config.playlist[0][1]}</b>"
         elif Config.STREAM_LINK:
-            title=f"<b>Stream Using [Url]({data['file']}) </b>"
+            title+=f"<b>Stream Using [Url]({data['file']})</b>"
         else:
-            title=f"<b>Streaming Startup stream</b>"
+            title+=f"<b>Streaming Startup stream</b>"
     if m.chat.type == "private":
         await m.reply_text(
             title,
