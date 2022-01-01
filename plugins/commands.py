@@ -57,6 +57,17 @@ HOME_TEXT = "<b>Hey  [{}](tg://user?id={}) 🙋‍♂️\n\nIam A Bot Built To P
 admin_filter=filters.create(is_admin) 
 
 
+@Client.on_message(filters.command(['logs', f"logs@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+async def get_logs(client, message):
+    m=await message.reply("Checking logs..")
+    if os.path.exists("botlog.txt"):
+        await message.reply_document('botlog.txt', caption="Music Bot Logs")
+        await m.delete()
+        await delete_messages([message])
+    else:
+        k = await m.edit("No log file found.")
+        await delete_messages([message, k])
+        
 @Client.on_message(filters.command(["mhelp", f"mhelp@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
     reply_markup=InlineKeyboardMarkup(
